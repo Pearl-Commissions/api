@@ -21,6 +21,7 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
+    compileOnly name: 'bungeecord'
 
     implementation 'com.github.cryptomorin:XSeries:8.5.0.1'
 }
