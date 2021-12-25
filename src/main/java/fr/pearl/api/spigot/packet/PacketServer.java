@@ -9,6 +9,8 @@ public interface PacketServer {
 
     Object getPacket();
 
+    Class<?> packetClass();
+
     default void send(Player player) {
         PearlSpigot.getInstance().getNmsManager().getNms().sendPacket(player, this.getPacket());
     }

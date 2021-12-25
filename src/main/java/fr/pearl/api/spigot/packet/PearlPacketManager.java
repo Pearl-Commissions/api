@@ -9,4 +9,6 @@ public interface PearlPacketManager {
     List<PacketHandler> getPacketHandlers();
 
     <T extends PacketServer> T getPacket(Class<? extends PacketServer> clazz);
+
+    <T extends PacketServer> T convertPacket(Object object);
 }
