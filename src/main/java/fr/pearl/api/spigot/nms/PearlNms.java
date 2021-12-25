@@ -9,5 +9,9 @@ public interface PearlNms<V> {
 
     void removeChannel(Player player, String name);
 
+    void sendPacket(Player player, Object packet);
+
+    void setListName(Player player, String listName);
+
     V getEntityPlayer(Player player);
 }
