@@ -1,9 +1,6 @@
 package fr.pearl.api.common.util;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -79,6 +76,30 @@ public class Reflection {
             return value;
         } catch (IllegalAccessException e) {
             throw new IllegalArgumentException("Cannot set instance of field '" + field.getName() + "'", e);
+        }
+    }
+
+    public static <T> Constructor<T> getConstructor(Class<T> clazz, Class<?>... parameterTypes) {
+        try {
+            return clazz.getConstructor(parameterTypes);
+        } catch (NoSuchMethodException e) {
+            throw new IllegalArgumentException("Cannot get constructor for class named '" + clazz.getName() + "'");
+        }
+    }
+
+    public static <T> T newInstance(Class<T> clazz, Constructor<T> constructor, Object... objects) {
+        try {
+            return constructor.newInstance(objects);
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            throw new IllegalArgumentException("Cannot create new instance of class '" + clazz.getName() + "'", e);
+        }
+    }
+
+    public static <T> T newInstance(Class<T> clazz) {
+        try {
+            return clazz.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new IllegalArgumentException("Cannot create new instance of class '" + clazz.getName() + "'", e);
         }
     }
 
