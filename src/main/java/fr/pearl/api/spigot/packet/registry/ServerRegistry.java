@@ -17,11 +17,7 @@ public enum ServerRegistry {
         return packetClass;
     }
 
-    public <T extends PacketServer> T convert(Object object) {
-        return PearlSpigot.getInstance().getPacketManager().convertPacket(object);
-    }
-
-    public <T extends PacketServer> T getPacket() {
+    public <T extends PacketServer> T createPacket() {
         return PearlSpigot.getInstance().getPacketManager().getPacket(this.packetClass);
     }
 }
