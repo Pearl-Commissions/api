@@ -1,5 +1,6 @@
 package fr.pearl.api.spigot;
 
+import fr.pearl.api.spigot.packet.PearlPacketManager;
 import fr.pearl.api.spigot.nms.PearlNmsManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,4 +17,6 @@ public abstract class PearlSpigot extends JavaPlugin {
     }
 
     public abstract PearlNmsManager getNmsManager();
+
+    public abstract PearlPacketManager getPacketManager();
 }
