@@ -4,5 +4,5 @@ public interface PearlNmsManager {
 
     NmsVersion getVersion();
 
-    PearlNms getNms();
+    PearlNms<?> getNms();
 }
