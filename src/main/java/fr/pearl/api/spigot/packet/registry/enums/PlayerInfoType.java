@@ -1,4 +1,4 @@
-package fr.pearl.api.spigot.packet.registry.util;
+package fr.pearl.api.spigot.packet.registry.enums;
 
 public enum PlayerInfoType {
     ADD_PLAYER,

@@ -1,7 +1,7 @@
 package fr.pearl.api.spigot.packet.registry.outbound;
 
 import fr.pearl.api.spigot.packet.PacketServer;
-import fr.pearl.api.spigot.packet.registry.util.PlayerInfoType;
+import fr.pearl.api.spigot.packet.registry.enums.PlayerInfoType;
 import org.bukkit.entity.Player;
 
 import java.util.Collection;
