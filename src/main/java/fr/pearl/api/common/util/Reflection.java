@@ -42,7 +42,7 @@ public class Reflection {
         }
     }
 
-    public static Method access(Class<?> clazz, String methodName, Class<?>... parameterTypes) {
+    public static Method accessMethod(Class<?> clazz, String methodName, Class<?>... parameterTypes) {
         try {
             Method method = clazz.getDeclaredMethod(methodName, parameterTypes);
             method.setAccessible(true);
