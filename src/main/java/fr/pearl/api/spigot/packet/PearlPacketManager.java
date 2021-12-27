@@ -10,5 +10,7 @@ public interface PearlPacketManager {
 
     <T extends PacketServer> T getPacket(Class<? extends PacketServer> clazz);
 
-    <T extends PacketServer> T convertPacket(Object object);
+    <T extends PacketServer> T convertPacket(Object packet);
+
+    <T extends PacketServer> T convertPacket(Object packet, boolean fillValues);
 }

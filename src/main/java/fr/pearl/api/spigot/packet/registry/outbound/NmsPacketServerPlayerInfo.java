@@ -13,4 +13,6 @@ public interface NmsPacketServerPlayerInfo extends PacketServer {
     void setPlayers(Player... players);
 
     void setPlayers(Collection<? extends Player> players);
+
+    PlayerInfoType getPlayerInfoType();
 }

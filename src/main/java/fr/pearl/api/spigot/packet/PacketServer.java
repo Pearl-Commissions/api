@@ -21,4 +21,6 @@ public interface PacketServer {
             PearlSpigot.getInstance().getNmsManager().getNms().sendPacket(player, packet);
         }
     }
+
+    default void setValues(Object packet) {}
 }

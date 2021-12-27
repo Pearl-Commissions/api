@@ -1,44 +1,7 @@
-plugins {
-    id 'com.github.johnrengelman.shadow' version '7.1.1'
-    id 'java'
-}
-
-compileJava.options.encoding = 'UTF-8'
-
-group 'fr.pearl.api'
-version '1.0-SNAPSHOT'
-
 repositories {
-    mavenCentral()
-    mavenLocal()
-
     maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
-
-    flatDir {
-        dir "libs"
-    }
 }
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
-    compileOnly name: 'bungeecord'
-
-    implementation 'com.github.cryptomorin:XSeries:8.5.0.1'
-}
-
-shadowJar {
-    exclude 'com/cryptomorin/xseries/unused/**'
-    exclude 'com/cryptomorin/xseries/messages/*'
-    exclude 'com/cryptomorin/xseries/XBiome*'
-    exclude 'com/cryptomorin/xseries/NMSExtras*'
-    exclude 'com/cryptomorin/xseries/NoteBlockMusic*'
-    exclude 'com/cryptomorin/xseries/SkullUtils*'
-    exclude 'com/cryptomorin/xseries/XEntity*'
-    exclude 'com/cryptomorin/xseries/XBlock*'
-
-    relocate 'com.cryptomorin.xseries', 'fr.pearl.api.libs.xseries'
-}
-
-artifacts {
-    archives shadowJar
 }
