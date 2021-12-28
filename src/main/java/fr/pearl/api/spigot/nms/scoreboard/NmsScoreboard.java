@@ -6,5 +6,5 @@ public interface NmsScoreboard<V> {
 
     NmsObjective<?> createObjective(String name, String criteria);
 
-    NmsTeam<?> createTeam(String name);
+    NmsTeam<?> createNewTeam(String name);
 }

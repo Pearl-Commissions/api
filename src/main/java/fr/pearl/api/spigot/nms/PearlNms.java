@@ -14,7 +14,7 @@ public interface PearlNms<V> {
 
     void setListName(Player player, String listName);
 
-    NmsScoreboard createScoreboard();
+    NmsScoreboard<?> createScoreboard();
 
     V getEntityPlayer(Player player);
 }
