@@ -6,18 +6,20 @@ import java.util.function.Predicate;
 
 public class Reflection {
 
-    private static final int javaVersion;
     private static final Field modifiers;
 
     static {
         String version = System.getProperty("java.version");
         final String[] parts = version.split("\\.");
-        javaVersion = Integer.parseInt(parts[0].equals("1") ? parts[1] : parts[0]);
-
-        try {
-            modifiers = Field.class.getDeclaredField("modifiers");
-        } catch (NoSuchFieldException e) {
-            throw new IllegalArgumentException("Cannot access modifiers field", e);
+        int javaVersion = Integer.parseInt(parts[0].equals("1") ? parts[1] : parts[0]);
+        if (javaVersion > 8) {
+            modifiers = null;
+        } else {
+            try {
+                modifiers = Field.class.getDeclaredField("modifiers");
+            } catch (NoSuchFieldException e) {
+                throw new IllegalArgumentException("Cannot access modifiers field", e);
+            }
         }
     }
 
@@ -33,7 +35,7 @@ public class Reflection {
         try {
             Field field = clazz.getDeclaredField(fieldName);
             field.setAccessible(true);
-            if (javaVersion < 9 && Modifier.isFinal(field.getModifiers())) {
+            if (modifiers != null && Modifier.isFinal(field.getModifiers())) {
                 modifiers.setInt(field, field.getModifiers() & ~Modifier.FINAL);
             }
             return field;
