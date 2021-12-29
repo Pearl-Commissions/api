@@ -8,5 +8,5 @@ public interface NmsPacketServerScoreboardScore extends PacketServer {
 
     void setScore(NmsScore<?> score);
 
-    default void setAction(ScoreAction action) {}
+    void setAction(ScoreAction action);
 }
