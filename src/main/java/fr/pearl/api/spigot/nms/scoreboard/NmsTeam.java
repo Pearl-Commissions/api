@@ -18,13 +18,13 @@ public interface NmsTeam<V> {
 
     void setTeamSuffix(String suffix);
 
-    void setPlayer(Player player); // Creates a singleton list
+    void setPlayerName(String playerName); // Creates a singleton list
 
     Set<String> getPlayerNameSet();
 
-    void addPlayer(Player player);
+    void addName(String playerName);
 
-    void removePlayer(Player player);
+    void removeName(String playerName);
 
     V getServerTeam();
 }
