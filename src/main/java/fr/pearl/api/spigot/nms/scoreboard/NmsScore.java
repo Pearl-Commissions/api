@@ -11,4 +11,6 @@ public interface NmsScore<V> {
     void setScore(int score);
 
     int getScore();
+
+    V getServerScore();
 }
