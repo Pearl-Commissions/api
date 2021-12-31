@@ -1,15 +1,23 @@
-package fr.pearl.api.common.config;
+package fr.pearl.api.common.configuration;
 
 import fr.pearl.api.common.PearlAPI;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public interface PearlConfiguration {
 
     <T> void set(String path, T value);
 
     <T> T get(String path, T defaultValue);
+
+    void load();
+
+    void save();
+
+    File getFile();
 
     default String getString(String path, String defaultValue) {
         return get(path, defaultValue);
@@ -54,4 +62,6 @@ public interface PearlConfiguration {
 
         return coloredList;
     }
+
+    Set<String> getKeys();
 }
