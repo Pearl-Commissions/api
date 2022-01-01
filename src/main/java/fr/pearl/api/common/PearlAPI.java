@@ -1,5 +1,6 @@
 package fr.pearl.api.common;
 
+import fr.pearl.api.common.command.PearlCommandManager;
 import fr.pearl.api.common.configuration.PearlConfigurationManager;
 
 public abstract class PearlAPI {
@@ -17,4 +18,6 @@ public abstract class PearlAPI {
     public abstract boolean isBungeeCord();
 
     public abstract PearlConfigurationManager getConfigurationManager();
+
+    public abstract PearlCommandManager getCommandManager();
 }
