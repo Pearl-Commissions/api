@@ -3,21 +3,25 @@ package fr.pearl.api.common.configuration;
 import fr.pearl.api.common.PearlAPI;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public interface PearlConfiguration {
-
-    <T> void set(String path, T value);
-
-    <T> T get(String path, T defaultValue);
 
     void load();
 
     void save();
 
     File getFile();
+
+    <T> void set(String path, T value);
+
+    <T> T get(String path, T defaultValue);
+
+    default PearlConfiguration getSection(String path) {
+        return getSection(path, null);
+    }
+
+    PearlConfiguration getSection(String path, Map<String, Object> defaultEntries);
 
     default String getString(String path, String defaultValue) {
         return get(path, defaultValue);
