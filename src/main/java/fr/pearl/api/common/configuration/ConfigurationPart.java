@@ -11,4 +11,6 @@ public abstract class ConfigurationPart {
     public void setSection(PearlConfiguration section) {
         this.section = section;
     }
+
+    public void loaded() {}
 }
