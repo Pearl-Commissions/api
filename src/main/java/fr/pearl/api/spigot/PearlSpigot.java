@@ -1,5 +1,6 @@
 package fr.pearl.api.spigot;
 
+import fr.pearl.api.spigot.menu.PearlMenuManager;
 import fr.pearl.api.spigot.packet.PearlPacketManager;
 import fr.pearl.api.spigot.nms.PearlNmsManager;
 import fr.pearl.api.spigot.sidebar.PearlSidebarManager;
@@ -22,4 +23,6 @@ public abstract class PearlSpigot extends JavaPlugin {
     public abstract PearlPacketManager getPacketManager();
 
     public abstract PearlSidebarManager getSidebarManager();
+
+    public abstract PearlMenuManager getMenuManager();
 }
