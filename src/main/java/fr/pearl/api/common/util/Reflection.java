@@ -44,6 +44,17 @@ public class Reflection {
         }
     }
 
+    public static void setAccessible(Field field) {
+        try {
+            field.setAccessible(true);
+            if (modifiers != null && Modifier.isFinal(field.getModifiers())) {
+                modifiers.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+            }
+        } catch (IllegalAccessException e) {
+            throw new IllegalArgumentException("Cannot access field named '" + field.getName() + "'", e);
+        }
+    }
+
     public static Method accessMethod(Class<?> clazz, String methodName, Class<?>... parameterTypes) {
         try {
             Method method = clazz.getDeclaredMethod(methodName, parameterTypes);

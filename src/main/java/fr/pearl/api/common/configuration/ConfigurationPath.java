@@ -1,5 +1,7 @@
 package fr.pearl.api.common.configuration;
 
+import org.simpleyaml.configuration.comments.CommentType;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -12,4 +14,6 @@ public @interface ConfigurationPath {
     String value();
 
     String[] comments() default {};
+
+    CommentType commentType() default CommentType.BLOCK;
 }
