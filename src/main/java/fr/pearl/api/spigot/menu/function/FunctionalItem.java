@@ -3,6 +3,7 @@ package fr.pearl.api.spigot.menu.function;
 import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.XPotion;
 import fr.pearl.api.spigot.menu.MenuItem;
+import fr.pearl.api.spigot.menu.PearlMenu;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -30,7 +31,7 @@ public class FunctionalItem extends MenuItem {
     }
 
     @Override
-    public void click(InventoryClickEvent event, Player player, ClickType type) {
-        if (this.consumer != null) this.consumer.accept(event, player, type);
+    public void click(PearlMenu menu, InventoryClickEvent event, Player player, ClickType type) {
+        if (this.consumer != null) this.consumer.accept(menu, event, player, type);
     }
 }

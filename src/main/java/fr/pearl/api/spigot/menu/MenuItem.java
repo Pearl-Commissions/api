@@ -50,5 +50,5 @@ public abstract class MenuItem extends ItemStack {
         return this;
     }
 
-    public abstract void click(InventoryClickEvent event, Player player, ClickType type);
+    public abstract void click(PearlMenu menu, InventoryClickEvent event, Player player, ClickType type);
 }
