@@ -1,4 +1,4 @@
-package fr.pearl.api.common.configuration;
+package fr.pearl.api.common.configuration.dynamic;
 
 import org.simpleyaml.configuration.comments.CommentType;
 
