@@ -2,7 +2,7 @@ package fr.pearl.api.spigot.util;
 
 import com.cryptomorin.xseries.XPotion;
 import fr.pearl.api.spigot.PearlSpigot;
-import org.apache.commons.lang3.Validate;
+import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
