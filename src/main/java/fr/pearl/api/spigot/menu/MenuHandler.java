@@ -1,5 +1,6 @@
 package fr.pearl.api.spigot.menu;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 
 import java.util.Map;
@@ -17,4 +18,6 @@ public interface MenuHandler {
     default int lines() {
         return 9;
     }
+
+    default void onOpen(PearlMenu menu, Player player) {}
 }
