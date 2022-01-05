@@ -17,6 +17,7 @@ public class Reflection {
         } else {
             try {
                 modifiers = Field.class.getDeclaredField("modifiers");
+                modifiers.setAccessible(true);
             } catch (NoSuchFieldException e) {
                 throw new IllegalArgumentException("Cannot access modifiers field", e);
             }
