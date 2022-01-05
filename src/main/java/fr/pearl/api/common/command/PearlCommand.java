@@ -29,6 +29,11 @@ public abstract class PearlCommand {
 
     public final void addArgument(String name, PearlCommand argument) {
         this.argumentMap.put(name.toLowerCase(), argument);
+        if (argument.getAliases() != null) {
+            for (String alias : argument.getAliases()) {
+                this.argumentMap.put(alias.toLowerCase(), argument);
+            }
+        }
     }
 
     public String getName() {
