@@ -24,7 +24,7 @@ public abstract class PearlCommand {
     public abstract void execute(PearlSender sender, String label, String[] args);
 
     public List<String> tabComplete(PearlSender sender, String label, String[] args) {
-        return ImmutableList.of();
+        return null;
     }
 
     public final void addArgument(String name, PearlCommand argument) {
