@@ -15,5 +15,7 @@ public @interface ConfigurationPath {
 
     String[] comments() default {};
 
+    String commentPath() default "";
+
     CommentType commentType() default CommentType.BLOCK;
 }

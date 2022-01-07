@@ -11,13 +11,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface ConfigurationKeys {
 
-    String value();
-
-    String[] comments() default {};
-
     String[] keyComments() default {};
-
-    CommentType commentType() default CommentType.BLOCK;
 
     String[] defaultKeys() default {};
 }
