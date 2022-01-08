@@ -1,7 +1,5 @@
 package fr.pearl.api.common.command;
 
-import com.google.common.collect.ImmutableList;
-
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +9,7 @@ public abstract class PearlCommand {
     private static final String defaultPermissionMessage = "§cYou don't have the permission.";
 
     private final Map<String, PearlCommand> argumentMap = new LinkedHashMap<>();
+    private final Map<String, PearlCommand> aliasMap = new LinkedHashMap<>();
     private final String name;
     private boolean playersOnly;
     private String permission;
@@ -31,7 +30,7 @@ public abstract class PearlCommand {
         this.argumentMap.put(name.toLowerCase(), argument);
         if (argument.getAliases() != null) {
             for (String alias : argument.getAliases()) {
-                this.argumentMap.put(alias.toLowerCase(), argument);
+                this.aliasMap.put(alias.toLowerCase(), argument);
             }
         }
     }
@@ -52,15 +51,15 @@ public abstract class PearlCommand {
         return aliases;
     }
 
-    public void setPlayersOnly(boolean playersOnly) {
+    public final void setPlayersOnly(boolean playersOnly) {
         this.playersOnly = playersOnly;
     }
 
-    public void setPermission(String permission) {
+    public final void setPermission(String permission) {
         this.permission = permission;
     }
 
-    public void setAliases(List<String> aliases) {
+    public final void setAliases(List<String> aliases) {
         String[] strings = new String[aliases.size()];
         for (int i = 0; i < aliases.size(); i++) {
             strings[i] = aliases.get(i);
@@ -80,7 +79,11 @@ public abstract class PearlCommand {
         this.permissionMessage = permissionMessage;
     }
 
-    public Map<String, PearlCommand> getArgumentMap() {
+    public final Map<String, PearlCommand> getArgumentMap() {
         return argumentMap;
+    }
+
+    public final Map<String, PearlCommand> getAliasMap() {
+        return aliasMap;
     }
 }
