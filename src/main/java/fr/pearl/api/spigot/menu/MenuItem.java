@@ -2,6 +2,8 @@ package fr.pearl.api.spigot.menu;
 
 import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.XPotion;
+import fr.pearl.api.spigot.PearlSpigot;
+import fr.pearl.api.spigot.util.ItemBuilder;
 import fr.pearl.api.spigot.util.MaterialUtil;
 import fr.pearl.api.spigot.util.PotionUtil;
 import org.bukkit.entity.Player;
@@ -42,6 +44,14 @@ public abstract class MenuItem extends ItemStack {
 
     public MenuItem lore(List<String> lore) {
         meta.setLore(lore);
+        return this;
+    }
+
+    public MenuItem glow(boolean glow) {
+        if (glow) {
+            this.addEnchantment(PearlSpigot.getInstance().getNmsManager().getNms().getGlowEnchant(), 0);
+        }
+
         return this;
     }
 

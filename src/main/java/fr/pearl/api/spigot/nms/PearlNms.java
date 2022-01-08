@@ -2,6 +2,7 @@ package fr.pearl.api.spigot.nms;
 
 import fr.pearl.api.spigot.nms.scoreboard.NmsScoreboard;
 import io.netty.channel.ChannelHandler;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 
 public interface PearlNms<V> {
@@ -17,4 +18,6 @@ public interface PearlNms<V> {
     NmsScoreboard<?> createScoreboard();
 
     V getEntityPlayer(Player player);
+
+    Enchantment getGlowEnchant();
 }

@@ -2,6 +2,7 @@ package fr.pearl.api.spigot.util;
 
 import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.XPotion;
+import fr.pearl.api.spigot.PearlSpigot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -37,6 +38,14 @@ public class ItemBuilder extends ItemStack {
 
     public ItemBuilder lore(List<String> lore) {
         meta.setLore(lore);
+        return this;
+    }
+
+    public ItemBuilder glow(boolean glow) {
+        if (glow) {
+            this.addEnchantment(PearlSpigot.getInstance().getNmsManager().getNms().getGlowEnchant(), 0);
+        }
+
         return this;
     }
 
