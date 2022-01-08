@@ -18,9 +18,9 @@ public interface PearlSender {
 
     net.md_5.bungee.api.connection.ProxiedPlayer getProxyPlayer();
 
-    org.bukkit.command.ConsoleCommandSender getBukkitConsole();
+    org.bukkit.command.CommandSender getBukkitSender();
 
-    net.md_5.bungee.command.ConsoleCommandSender getProxyConsole();
+    net.md_5.bungee.api.CommandSender getProxySender();
     
     default boolean isPlayer() {
         return PearlAPI.getInstance().isBungeeCord() ? this.getProxyPlayer() != null : this.getBukkitPlayer() != null;
