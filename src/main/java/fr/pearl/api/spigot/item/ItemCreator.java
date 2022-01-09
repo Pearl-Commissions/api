@@ -1,56 +1,60 @@
-package fr.pearl.api.spigot.util;
+package fr.pearl.api.spigot.item;
 
 import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.XPotion;
 import fr.pearl.api.spigot.PearlSpigot;
+import fr.pearl.api.spigot.util.MaterialUtil;
+import fr.pearl.api.spigot.util.PotionUtil;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
-public class ItemBuilder extends ItemStack {
+public abstract class ItemCreator<V> extends ItemStack {
 
     private final ItemMeta meta;
 
-    public ItemBuilder(XMaterial material) {
+    public ItemCreator(XMaterial material) {
         this(MaterialUtil.parseItem(material));
     }
 
-    public ItemBuilder(XPotion potion) {
+    public ItemCreator(XPotion potion) {
         this(PotionUtil.parseItem(potion));
     }
 
-    public ItemBuilder(ItemStack itemStack) {
+    public ItemCreator(ItemStack itemStack) {
         super(itemStack);
 
         this.meta = this.getItemMeta();
     }
 
-    public ItemBuilder amount(int amount) {
+    public final V amount(int amount) {
         this.setAmount(amount);
-        return this;
+        return returnInstance();
     }
 
-    public ItemBuilder displayName(String displayName) {
+    public final V displayName(String displayName) {
         meta.setDisplayName(displayName);
-        return this;
+        return returnInstance();
     }
 
-    public ItemBuilder lore(List<String> lore) {
+    public final V lore(List<String> lore) {
         meta.setLore(lore);
-        return this;
+        return returnInstance();
     }
 
-    public ItemBuilder glow(boolean glow) {
+    public final V glow(boolean glow) {
         if (glow) {
             this.addEnchantment(PearlSpigot.getInstance().getNmsManager().getNms().getGlowEnchant(), 0);
         }
 
-        return this;
+        return returnInstance();
     }
 
     public ItemStack buildItem() {
         this.setItemMeta(this.meta);
         return this;
     }
+
+    protected abstract V returnInstance();
 }

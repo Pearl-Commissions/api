@@ -1,4 +1,4 @@
-package fr.pearl.api.spigot.menu.function;
+package fr.pearl.api.spigot.menu.item;
 
 import fr.pearl.api.spigot.menu.PearlMenu;
 import org.bukkit.entity.Player;
