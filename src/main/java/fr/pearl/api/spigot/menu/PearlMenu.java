@@ -11,4 +11,6 @@ public interface PearlMenu {
     void refreshSlots();
 
     void clear();
+
+    boolean isPaginated();
 }
