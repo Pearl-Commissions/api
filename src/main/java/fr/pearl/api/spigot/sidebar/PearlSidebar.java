@@ -12,7 +12,11 @@ public interface PearlSidebar {
 
     void updateSlot(int slot);
 
+    void updateSlot(int slot, boolean global);
+
     void updateSlot(PearlSidebarSlot slot);
+
+    void updateSlot(PearlSidebarSlot slot, boolean global);
 
     SidebarHandler getHandler();
 
