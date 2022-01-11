@@ -4,6 +4,7 @@ import fr.pearl.api.spigot.menu.PearlMenuManager;
 import fr.pearl.api.spigot.packet.PearlPacketManager;
 import fr.pearl.api.spigot.nms.PearlNmsManager;
 import fr.pearl.api.spigot.sidebar.PearlSidebarManager;
+import fr.pearl.api.spigot.tag.PearlTagManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public abstract class PearlSpigot extends JavaPlugin {
@@ -25,4 +26,6 @@ public abstract class PearlSpigot extends JavaPlugin {
     public abstract PearlSidebarManager getSidebarManager();
 
     public abstract PearlMenuManager getMenuManager();
+
+    public abstract PearlTagManager getTagManager();
 }
