@@ -3,6 +3,7 @@ package fr.pearl.api.spigot.menu.item;
 import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.XPotion;
 import fr.pearl.api.spigot.item.ItemCreator;
+import fr.pearl.api.spigot.menu.MenuHolder;
 import fr.pearl.api.spigot.menu.MenuItem;
 import fr.pearl.api.spigot.menu.PearlMenu;
 import org.bukkit.entity.Player;
@@ -30,7 +31,7 @@ public class MovableItem extends ItemCreator<MovableItem> implements MenuItem {
     }
 
     @Override
-    public void click(PearlMenu menu, InventoryClickEvent event, Player player, ClickType type) {
-        event.setCancelled(false);
+    public void click(PearlMenu menu, MenuHolder holder, InventoryClickEvent event, Player player, ClickType type) {
+        event.setCancelled(true);
     }
 }

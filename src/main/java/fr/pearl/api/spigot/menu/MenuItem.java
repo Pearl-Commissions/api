@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 public interface MenuItem {
 
-    void click(PearlMenu menu, InventoryClickEvent event, Player player, ClickType type);
+    void click(PearlMenu menu, MenuHolder holder, InventoryClickEvent event, Player player, ClickType type);
 
     ItemStack buildItem();
 }

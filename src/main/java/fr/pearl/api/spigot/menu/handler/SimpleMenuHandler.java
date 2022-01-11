@@ -1,11 +1,13 @@
-package fr.pearl.api.spigot.menu;
+package fr.pearl.api.spigot.menu.handler;
 
+import fr.pearl.api.spigot.menu.MenuItem;
+import fr.pearl.api.spigot.menu.PearlMenu;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 
 import java.util.Map;
 
-public interface MenuHandler {
+public interface SimpleMenuHandler {
 
     String title();
 
