@@ -4,6 +4,8 @@ import fr.pearl.api.spigot.nms.scoreboard.NmsScoreboard;
 import io.netty.channel.ChannelHandler;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public interface PearlNms<V> {
 
@@ -20,4 +22,8 @@ public interface PearlNms<V> {
     V getEntityPlayer(Player player);
 
     Enchantment getGlowEnchant();
+
+    default void setUnbreakable(ItemMeta meta, boolean unbreakable) {
+        meta.setUnbreakable(unbreakable);
+    }
 }

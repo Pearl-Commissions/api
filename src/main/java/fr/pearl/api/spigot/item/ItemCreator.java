@@ -51,6 +51,11 @@ public abstract class ItemCreator<V> extends ItemStack {
         return returnInstance();
     }
 
+    public final V unbreakable(boolean unbreakable) {
+        PearlSpigot.getInstance().getNmsManager().getNms().setUnbreakable(this.meta, unbreakable);
+        return returnInstance();
+    }
+
     public ItemStack buildItem() {
         this.setItemMeta(this.meta);
         return this;
