@@ -1,10 +1,9 @@
 package fr.pearl.api.spigot.item;
 
 import com.cryptomorin.xseries.XMaterial;
-import com.cryptomorin.xseries.XPotion;
 import fr.pearl.api.spigot.PearlSpigot;
+import fr.pearl.api.spigot.potion.PotionBuilder;
 import fr.pearl.api.spigot.util.MaterialUtil;
-import fr.pearl.api.spigot.util.PotionUtil;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -18,8 +17,8 @@ public abstract class ItemCreator<V> extends ItemStack {
         this(MaterialUtil.parseItem(material));
     }
 
-    public ItemCreator(XPotion potion) {
-        this(PotionUtil.parseItem(potion));
+    public ItemCreator(PotionBuilder builder) {
+        this(builder.builtItem());
     }
 
     public ItemCreator(ItemStack itemStack) {

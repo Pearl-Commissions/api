@@ -46,7 +46,7 @@ public class PotionBuilder {
         PotionType potionType = PotionType.getByEffect(type);
         if (isOld) {
             if (potionType == null) return new ItemStack(Material.POTION, 1);
-            Potion potion = new Potion(potionType, this.upgraded ? 2 : 1, true);
+            Potion potion = new Potion(potionType, this.upgraded ? 2 : 1, this.splash);
             potion.setHasExtendedDuration(this.extended);
             return potion.toItemStack(1);
         } else {
