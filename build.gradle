@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.1"
+    }
+}
+
+allprojects {
+    group 'fr.pearl.core'
+    version = property("projectVersion") as String
+}
+
+subprojects { p ->
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    compileJava.options.encoding = 'UTF-8'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+
+        maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+        maven { url = 'https://jitpack.io'}
+
+        flatDir {
+            dir "lib"
+        }
+    }
+
+    dependencies {
+        if (p.name == 'api' || p.name == 'core') {
+            compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
+            compileOnly files('../lib/bungee.jar')
+        } else {
+            compileOnly project(':api')
+            compileOnly project(':core')
+        }
+
+        if (p.name == 'api') {
+            implementation 'org.jetbrains:annotations:20.1.0'
+            implementation 'com.github.cryptomorin:XSeries:8.5.0.1'
+        } else {
+            compileOnly 'org.jetbrains:annotations:20.1.0'
+            compileOnly 'com.github.cryptomorin:XSeries:8.5.0.1'
+        }
+    }
+
+    shadowJar {
+        exclude 'com/cryptomorin/xseries/unused/**'
+        exclude 'com/cryptomorin/xseries/messages/*'
+        exclude 'com/cryptomorin/xseries/XBiome*'
+        exclude 'com/cryptomorin/xseries/NMSExtras*'
+        exclude 'com/cryptomorin/xseries/NoteBlockMusic*'
+        exclude 'com/cryptomorin/xseries/SkullUtils*'
+        exclude 'com/cryptomorin/xseries/XEntity*'
+        exclude 'com/cryptomorin/xseries/XBlock*'
+        exclude 'org/yaml/snakeyaml/**'
+
+        if (p.name == 'api') {
+            archiveFileName = "PearlAPI-${project.version}.jar"
+        }
+    }
+
+    artifacts {
+        archives shadowJar
+    }
+}

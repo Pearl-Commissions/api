@@ -1,0 +1,17 @@
+rootProject.name = 'PearlAPI'
+
+include 'api'
+include 'core'
+include 'core:1.8'
+include 'core:1.8'
+include 'core:1.9'
+include 'core:1.10'
+include 'core:1.11'
+include 'core:1.12'
+include 'core:1.13'
+include 'core:1.14'
+include 'core:1.15'
+include 'core:1.16'
+include 'core:1.17'
+include 'core:all'
+
