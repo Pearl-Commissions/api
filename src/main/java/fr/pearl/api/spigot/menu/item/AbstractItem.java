@@ -1,11 +1,10 @@
 package fr.pearl.api.spigot.menu.item;
 
 import com.cryptomorin.xseries.XMaterial;
-import com.cryptomorin.xseries.XPotion;
 import fr.pearl.api.spigot.item.ItemCreator;
 import fr.pearl.api.spigot.menu.MenuItem;
+import fr.pearl.api.spigot.potion.PotionBuilder;
 import fr.pearl.api.spigot.util.MaterialUtil;
-import fr.pearl.api.spigot.util.PotionUtil;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -17,8 +16,8 @@ public abstract class AbstractItem extends ItemCreator<AbstractItem> implements 
         this(MaterialUtil.parseItem(material));
     }
 
-    public AbstractItem(XPotion potion) {
-        this(PotionUtil.parseItem(potion));
+    public AbstractItem(PotionBuilder potion) {
+        this(potion.builtItem());
     }
 
     public AbstractItem(ItemStack itemStack) {

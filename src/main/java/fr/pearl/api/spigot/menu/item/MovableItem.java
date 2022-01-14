@@ -6,6 +6,7 @@ import fr.pearl.api.spigot.item.ItemCreator;
 import fr.pearl.api.spigot.menu.MenuHolder;
 import fr.pearl.api.spigot.menu.MenuItem;
 import fr.pearl.api.spigot.menu.PearlMenu;
+import fr.pearl.api.spigot.potion.PotionBuilder;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -17,7 +18,7 @@ public class MovableItem extends ItemCreator<MovableItem> implements MenuItem {
         super(material);
     }
 
-    public MovableItem(XPotion potion) {
+    public MovableItem(PotionBuilder potion) {
         super(potion);
     }
 

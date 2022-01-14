@@ -9,6 +9,7 @@ import fr.pearl.api.spigot.menu.PearlMenu;
 import fr.pearl.api.spigot.menu.holder.PageHolder;
 import fr.pearl.api.spigot.menu.page.PearlPage;
 import fr.pearl.api.spigot.menu.type.PaginatedPearlMenu;
+import fr.pearl.api.spigot.potion.PotionBuilder;
 import fr.pearl.api.spigot.sound.SoundBuilder;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
@@ -24,7 +25,7 @@ public class PreviousPageItem extends ItemCreator<PreviousPageItem> implements M
         super(material);
     }
 
-    public PreviousPageItem(XPotion potion) {
+    public PreviousPageItem(PotionBuilder potion) {
         super(potion);
     }
 

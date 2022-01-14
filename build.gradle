@@ -1,0 +1,3 @@
+shadowJar{
+    archiveFileName = "PearlAPI-${project.version}.jar"
+}

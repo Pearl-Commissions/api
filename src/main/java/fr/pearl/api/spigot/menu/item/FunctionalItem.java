@@ -6,6 +6,7 @@ import fr.pearl.api.spigot.item.ItemCreator;
 import fr.pearl.api.spigot.menu.MenuHolder;
 import fr.pearl.api.spigot.menu.MenuItem;
 import fr.pearl.api.spigot.menu.PearlMenu;
+import fr.pearl.api.spigot.potion.PotionBuilder;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -15,7 +16,7 @@ public class FunctionalItem extends ItemCreator<FunctionalItem> implements MenuI
 
     private ItemConsumer consumer;
 
-    public FunctionalItem(XPotion potion) {
+    public FunctionalItem(PotionBuilder potion) {
         super(potion);
     }
 
