@@ -3,27 +3,26 @@ buildscript {
         mavenCentral()
         mavenLocal()
 
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        maven { url "https://plugins.gradle.org/m2/" }
+
     }
 
     dependencies {
         classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.1"
     }
 }
-plugins {
-    id 'maven-publish'
-}
 
-apply plugin: 'maven-publish'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 allprojects {
     group 'fr.pearl.core'
-    version = property("projectVersion") as String
-}
+    projectVersion = property("projectVersion") as String
 
+    repositories {
+        google()
+        maven { url "https://jitpack.io" }
+    }
+}
 
 subprojects { p ->
     apply plugin: 'java'
@@ -73,7 +72,7 @@ subprojects { p ->
         exclude 'org/yaml/snakeyaml/**'
 
         if (p.name == 'api') {
-            archiveFileName = "PearlAPI-${project.version}.jar"
+            archiveFileName = "PearlAPI-${projectVersion}.jar"
         }
     }
 
