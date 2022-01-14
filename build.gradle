@@ -13,10 +13,13 @@ buildscript {
     }
 }
 
+apply plugin: 'com.github.johnrengelman.shadow'
+
 allprojects {
     group 'fr.pearl.core'
     version = property("projectVersion") as String
 }
+
 
 subprojects { p ->
     apply plugin: 'java'
