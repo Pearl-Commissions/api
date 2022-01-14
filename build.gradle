@@ -12,7 +12,11 @@ buildscript {
         classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.1"
     }
 }
+plugins {
+    id 'maven-publish'
+}
 
+apply plugin: 'maven-publish'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 allprojects {
