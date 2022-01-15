@@ -4,6 +4,8 @@ shadowJar {
     archiveVersion.set(projectVersion)
 }
 
+apply plugin: 'maven-publish'
+
 dependencies {
     implementation 'org.jetbrains:annotations:22.0.0'
     implementation 'com.github.cryptomorin:XSeries:8.5.0.1'
