@@ -1,14 +1,22 @@
-plugins {
-    id 'maven-publish'
+shadowJar {
+    archiveBaseName.set('PearlAPI')
+    archiveClassifier.set('')
+    archiveVersion.set(projectVersion)
 }
 
-apply plugin: 'maven-publish'
+dependencies {
+    implementation 'org.jetbrains:annotations:22.0.0'
+    implementation 'com.github.cryptomorin:XSeries:8.5.0.1'
+}
 
 publishing {
     publications {
         shadow(MavenPublication) { publication ->
             project.shadow.component(publication)
+
+            version = projectVersion
+            groupId = 'fr.pearl.core'
+            artifactId = 'PearlAPI'
         }
     }
 }
-

@@ -12,10 +12,12 @@ buildscript {
     }
 }
 
-apply plugin: 'com.github.johnrengelman.shadow'
+plugins {
+    id 'maven-publish'
+}
 
 allprojects {
-    group 'fr.pearl.core'
+    projectGroup = 'fr.pearl.core'
     projectVersion = property("projectVersion") as String
 
     repositories {
@@ -27,6 +29,7 @@ allprojects {
 subprojects { p ->
     apply plugin: 'java'
     apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'maven-publish'
 
     compileJava.options.encoding = 'UTF-8'
 
@@ -51,10 +54,7 @@ subprojects { p ->
             compileOnly project(':core')
         }
 
-        if (p.name == 'api') {
-            implementation 'org.jetbrains:annotations:20.1.0'
-            implementation 'com.github.cryptomorin:XSeries:8.5.0.1'
-        } else {
+        if (p.name != 'api') {
             compileOnly 'org.jetbrains:annotations:20.1.0'
             compileOnly 'com.github.cryptomorin:XSeries:8.5.0.1'
         }
@@ -70,10 +70,6 @@ subprojects { p ->
         exclude 'com/cryptomorin/xseries/XEntity*'
         exclude 'com/cryptomorin/xseries/XBlock*'
         exclude 'org/yaml/snakeyaml/**'
-
-        if (p.name == 'api') {
-            archiveFileName = "PearlAPI-${projectVersion}.jar"
-        }
     }
 
     artifacts {
