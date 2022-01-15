@@ -17,7 +17,7 @@ plugins {
 }
 
 allprojects {
-    projectGroup = 'fr.pearl.core'
+    group 'fr.pearl.core'
     projectVersion = property("projectVersion") as String
 
     repositories {
