@@ -7,7 +7,7 @@ import java.io.*;
 
 public class IOUtils {
 
-    public static File getOrCreate(File file) {
+    public static boolean getOrCreate(File file) {
         if (!file.exists()) {
             if (file.getParentFile() != null && !file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
@@ -19,10 +19,10 @@ public class IOUtils {
                 e.printStackTrace();
             }
 
-            return null;
+            return false;
         }
 
-        return file;
+        return true;
     }
 
     public static void readFile(File file, IOReadConsumer consumer) {

@@ -25,6 +25,17 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
 }
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url = 'https://jitpack.io'}
+
+    flatDir {
+        dir "lib"
+    }
+}
 
 subprojects { p ->
     apply plugin: 'java'
