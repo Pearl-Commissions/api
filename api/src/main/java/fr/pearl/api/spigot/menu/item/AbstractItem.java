@@ -6,11 +6,9 @@ import fr.pearl.api.spigot.menu.MenuItem;
 import fr.pearl.api.spigot.potion.PotionBuilder;
 import fr.pearl.api.spigot.util.MaterialUtil;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public abstract class AbstractItem extends ItemCreator<AbstractItem> implements MenuItem {
 
-    private final ItemMeta meta;
 
     public AbstractItem(XMaterial material) {
         this(MaterialUtil.parseItem(material));
@@ -22,13 +20,6 @@ public abstract class AbstractItem extends ItemCreator<AbstractItem> implements 
 
     public AbstractItem(ItemStack itemStack) {
         super(itemStack);
-
-        this.meta = this.getItemMeta();
-    }
-
-    public ItemStack buildItem() {
-        this.setItemMeta(this.meta);
-        return this;
     }
 
     @Override

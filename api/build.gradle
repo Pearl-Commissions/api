@@ -1,7 +1,7 @@
 shadowJar {
     archiveBaseName.set('PearlAPI')
     archiveClassifier.set('')
-    archiveVersion.set(projectVersion)
+    archiveVersion.set(apiVersion)
 }
 
 apply plugin: 'maven-publish'
@@ -16,7 +16,7 @@ publishing {
         shadow(MavenPublication) { publication ->
             project.shadow.component(publication)
 
-            version = projectVersion
+            version = apiVersion
             groupId = 'fr.pearl.core'
             artifactId = 'PearlAPI'
         }

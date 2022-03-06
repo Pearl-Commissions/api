@@ -18,7 +18,8 @@ plugins {
 
 allprojects {
     group 'fr.pearl.core'
-    projectVersion = property("projectVersion") as String
+    apiVersion = property("apiVersion") as String
+    coreVersion = property("coreVersion") as String
 
     repositories {
         google()

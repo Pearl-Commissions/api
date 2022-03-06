@@ -1,7 +1,6 @@
 package fr.pearl.api.spigot.menu.handler;
 
 import fr.pearl.api.spigot.menu.MenuItem;
-import fr.pearl.api.spigot.menu.PearlMenu;
 import fr.pearl.api.spigot.menu.type.SimplePearlMenu;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
@@ -19,7 +18,7 @@ public interface SimpleMenuHandler {
     }
 
     default int lines() {
-        return 9;
+        return 6;
     }
 
     default void onOpen(SimplePearlMenu menu, Player player) {}
